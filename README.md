@@ -27,7 +27,7 @@
 | price            | integer | null: false                    |
 | explanation      | text    |                                |
 | category         | integer | null: false                    |
-| users_id         | integer | null: false, foreign_key: true |
+| user_id         | integer | null: false, foreign_key: true |
 | product_status   | integer | null: false                    |
 | shipping_area    | integer | null: false                    |
 | date_of_shipment | integer | null: false                    |
