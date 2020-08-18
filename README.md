@@ -35,7 +35,8 @@
 
 - berongs_to :user
 - has_many   :comments
-- has_one :purchases
+- has_one    :purchase
+- has_one    :address
 
 
 ## comments テーブル
@@ -44,7 +45,7 @@
 | -------- | ------- | ------------------------------ |
 | text     | string  | null: false                    |
 | users_id | integer | null: false, foreign_key: true |
-| items_id | integer | null: false                    |
+| items_id | integer | null: false  foreign_key: true |
 
 ### Association
 
@@ -54,28 +55,30 @@
 
 ## purchases
 
-| Column     | Type    | Options                        |
-| ---------- | ------- | ------------------------------ |
-| user_id    | integer | null: false, foreign_key: true |
-| address_id | integer | null: false, foreign_key: true |
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| user_id | integer | null: false, foreign_key: true |
+| item_id | integer | null: false, foreign_key: true |
 
 ### Association
 
 - berongs_to :user
-- has_one    :address
+- berongs_to :item
 
 
-## address テーブル
+## addresses テーブル
 
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
 | postal_code   | string  | null: false                    |
+| prefecture    | string  | null: false                    |
 | city          | string  | null: false                    |
 | house_number  | string  | null: false                    |
 | building_name | string  |                                |
-| users_id      | integer | null: false, foreign_key: true |
-| phone number  | integer | null: false                    |
+| item_id       | integer | null: false, foreign_key: true |
+| phone_number  | string  | null: false                    |
 
 ### Association
 
-- berongs_to :purchases
+- berongs_to :item
+- berongs_to :purchase
