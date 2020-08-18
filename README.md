@@ -3,6 +3,7 @@
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
+| nickname            | string | null: false |
 | first_name          | string | null: false |
 | last_name           | string | null: false |
 | first_name_Phonetic | string | null: false |
@@ -20,29 +21,30 @@
 
 ## items テーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| name             | string  | null: false |
-| price            | integer | null: false |
-| category         | integer | null: false |
-| users_id         | integer | null: false |
-| product_status   | integer | null: false |
-| shipping_area    | integer | null: false |
-| date_of_shipment | integer | null: false |
+| Column           | Type    | Options                        |
+| ---------------- | ------- | ------------------------------ |
+| name             | string  | null: false                    |
+| price            | integer | null: false                    |
+| category         | integer | null: false                    |
+| users_id         | integer | null: false, foreign_key: true |
+| product_status   | integer | null: false                    |
+| shipping_area    | integer | null: false                    |
+| date_of_shipment | integer | null: false                    |
 
 ### Association
 
 - berongs_to :user
 - has_many   :comments
+- has_one :purchases
 
 
 ## comments テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| text     | string  | null: false |
-| users_id | integer | null: false |
-| items_id | integer | null: false |
+| Column   | Type    | Options                        |
+| -------- | ------- | ------------------------------ |
+| text     | string  | null: false                    |
+| users_id | integer | null: false, foreign_key: true |
+| items_id | integer | null: false                    |
 
 ### Association
 
@@ -52,10 +54,10 @@
 
 ## purchases
 
-| Column     | Type    | Options     |
-| ---------- | ------- | ----------- |
-| user_id   | integer | null: false |
-| address_id | integer | null: false |
+| Column     | Type    | Options                        |
+| ---------- | ------- | ------------------------------ |
+| user_id    | integer | null: false, foreign_key: true |
+| address_id | integer | null: false, foreign_key: true |
 
 ### Association
 
@@ -65,14 +67,14 @@
 
 ## address テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| postal_code   | string  | null: false |
-| city          | string  | null: false |
-| house_number  | string  | null: false |
-| building_name | string  |             |
-| users_id      | integer | null: false |
-| phone number  | integer | null: false |
+| Column        | Type    | Options                        |
+| ------------- | ------- | ------------------------------ |
+| postal_code   | string  | null: false                    |
+| city          | string  | null: false                    |
+| house_number  | string  | null: false                    |
+| building_name | string  |                                |
+| users_id      | integer | null: false, foreign_key: true |
+| phone number  | integer | null: false                    |
 
 ### Association
 
