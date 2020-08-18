@@ -25,11 +25,13 @@
 | ---------------- | ------- | ------------------------------ |
 | name             | string  | null: false                    |
 | price            | integer | null: false                    |
+| explanation      | text    |                                |
 | category         | integer | null: false                    |
 | users_id         | integer | null: false, foreign_key: true |
 | product_status   | integer | null: false                    |
 | shipping_area    | integer | null: false                    |
 | date_of_shipment | integer | null: false                    |
+| delivery_fee     | integer | null: false                    |
 
 ### Association
 
@@ -62,6 +64,7 @@
 ### Association
 
 - berongs_to :user
+- berongs_to :item
 - has_one    :address
 
 
@@ -74,7 +77,7 @@
 | city          | string  | null: false                    |
 | house_number  | string  | null: false                    |
 | building_name | string  |                                |
-| purchase_id       | integer | null: false, foreign_key: true |
+| purchase_id   | integer | null: false, foreign_key: true |
 | phone_number  | string  | null: false                    |
 
 ### Association
