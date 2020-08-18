@@ -36,7 +36,6 @@
 - berongs_to :user
 - has_many   :comments
 - has_one    :purchase
-- has_one    :address
 
 
 ## comments テーブル
@@ -63,7 +62,7 @@
 ### Association
 
 - berongs_to :user
-- berongs_to :item
+- has_one    :address
 
 
 ## addresses テーブル
@@ -71,14 +70,13 @@
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
 | postal_code   | string  | null: false                    |
-| prefecture    | string  | null: false                    |
+| prefecture    | integer | null: false                    |
 | city          | string  | null: false                    |
 | house_number  | string  | null: false                    |
 | building_name | string  |                                |
-| item_id       | integer | null: false, foreign_key: true |
+| purchase_id       | integer | null: false, foreign_key: true |
 | phone_number  | string  | null: false                    |
 
 ### Association
 
-- berongs_to :item
 - berongs_to :purchase
