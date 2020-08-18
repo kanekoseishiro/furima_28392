@@ -1,24 +1,73 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :comments
+- has_many :purchases
+- has_one  :address
 
-* Configuration
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column    | Type    | Options     |
+| --------- | ------- | ----------- |
+| item_name | string  | null: false |
+| price     | integer | null: false |
+| users_id  | integer | null: false |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- berongs_to :users
+- has_many   :comments
 
-* Deployment instructions
 
-* ...
+## comments テーブル
+
+| Column   | Type    | Options     |
+| -------- | ------- | ----------- |
+| text     | string  | null: false |
+| users_id | integer | null: false |
+| items_id | integer | null: false |
+
+### Association
+
+- berongs_to :users
+- berongs_to :items
+
+
+## purchases
+
+| Column     | Type    | Options     |
+| ---------- | ------- | ----------- |
+| users_id   | integer | null: false |
+| address_id | integer | null: false |
+
+### Association
+
+- berongs_to :users
+- berongs_to :address
+
+
+## address テーブル
+
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| postal_code   | string  | null: false |
+| prefecture    | string  | null: false |
+| city          | string  | null: false |
+| house_number  | string  | null: false |
+| building_name | string  | null: false |
+| users_id      | integer | null: false |
+
+### Association
+
+- berongs_to :users
+- has_one    :purchases
