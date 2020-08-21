@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: kana}
     validates :last_name_kana, format: { with: kana}
     validates :birthday
+    validates :password, format: { with: /\A[a-z0-9]+\z/i }
   end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
