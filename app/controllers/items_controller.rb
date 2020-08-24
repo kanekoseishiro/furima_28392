@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_user_session, except: [:index, :show]
 
   def index
     @items = Item.all
-    @item = Item.order("created_ESC")
+    # @item = Item.order("created_ESC")
   end
 
   def new
-    @user = User.new
     @item = Item.new
   end
 
@@ -22,7 +21,7 @@ class ItemsController < ApplicationController
   
   private
 
-  def move_to_index
+  def move_to_user_session
     unless user_signed_in?
       redirect_to new_user_session_path
     end
