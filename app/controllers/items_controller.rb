@@ -3,21 +3,21 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    # @item = Item.order("created_at DESC")
+    @item = Item.order("created_ESC")
   end
 
   def new
     @user = User.new
     @item = Item.new
-    # if user_signed_in?
-    #   redirect_to "/items/new"
-    # else
-    #   redirect_to "/devise/registrations/new"
-    # end
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.create(item_params)
+    if @article.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
   
   private
