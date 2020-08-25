@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :price, numericality: { only_integer: true,greater_than: 300, less_than: 9999999}
     validates :explanation
