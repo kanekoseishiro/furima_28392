@@ -20,9 +20,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     @item.update(item_params)
     if @item.valid?
@@ -30,9 +27,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def show
   end
 
   private
