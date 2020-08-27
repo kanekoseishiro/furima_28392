@@ -18,7 +18,15 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  
+
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def move_to_user_session
