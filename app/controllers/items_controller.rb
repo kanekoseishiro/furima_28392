@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_user_session, except: [:index, :show]
+  before_action :move_to_user_session, except: [:index]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -19,7 +19,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
+
   def show
+    @item = Item.find(params[:id])
   end
 
   private
