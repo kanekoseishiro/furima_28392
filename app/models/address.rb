@@ -1,6 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :user
-  belongs_to :transaction
-
-  
+  belongs_to :purchase
 end
