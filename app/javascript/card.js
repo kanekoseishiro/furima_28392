@@ -32,6 +32,13 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
+        document.getElementById("card_number").removeAttribute("name");
+        document.getElementById("card_cvc").removeAttribute("name");
+        document.getElementById("card_exp_month").removeAttribute("name");
+        document.getElementById("card_exp_year").removeAttribute("name");
+
+        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
       }
     });
   });
