@@ -4,10 +4,6 @@ class PurchaseAddress
   attr_accessor :postal_code, :prefecture, :city, :house_number, :building_name, :phone_number, :user_id, :item_id
 
   with_options presence: true do
-    validates :card_number
-    validates :card_exp_month
-    validates :card_exp_year
-    validates :card_cvc
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
     validates :prefecture, numericality: { other_than: 1 }
     validates :city

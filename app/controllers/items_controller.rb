@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
-    # @purchase = @purchase.find(params[:id])
-    # @purchase.update( purchase_id: current_user.id )
   end
 
   def new
