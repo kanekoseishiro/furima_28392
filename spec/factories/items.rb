@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     association :user
     name                {"あ"}
-    image               {Faker::Avatar.image}
+    image               {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/flag.png'))}
     price               {1000}
     explanation         {"あ"}
     category_id         {2}

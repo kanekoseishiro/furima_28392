@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :items
+  has_many :purchases
 
   with_options presence: true do
     character = /\A[ぁ-んァ-ン一-龥]/

@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  # def show
+  #   binding.pry
+  # end
+
   private
 
   def set_item
