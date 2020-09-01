@@ -9,10 +9,10 @@ const pay = () => {
     const formData = new FormData(formResult);
 
     const card = {
-      number: formData.get("card_number"),
-      cvc: formData.get("card_cvc"),
-      exp_month: formData.get("card_exp_month"),
-      exp_year: `20${formData.get("card_exp_year")}`,
+      number: formData.get("purchase_address[card_number]"),
+      cvc: formData.get("purchase_address[card_cvc]"),
+      exp_month: formData.get("purchase_address[card_exp_month]"),
+      exp_year: `20${formData.get("purchase_address[card_exp_year]")}`,
     };
     console.log(card)
     
@@ -20,6 +20,7 @@ const pay = () => {
       console.log(status)
       if (status === 200) {
         const token = response.id;
+        console.log(token)
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
